@@ -114,7 +114,7 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${accessToken}`,
       },
-      json: {
+      body: {
         query: 'query Me {\n  viewer {\n    id\n    name\n    email\n  }\n}',
       },
     })
