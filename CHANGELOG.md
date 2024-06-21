@@ -1,5 +1,25 @@
 # Changelog
 
+## v0.1.2
+
+[compare changes](https://github.com/Atinux/nuxt-auth-utils/compare/v0.1.0...v0.1.2)
+
+### 💅 Refactors
+
+- Replace ofetch with $fetch ([a7df1b5](https://github.com/Atinux/nuxt-auth-utils/commit/a7df1b5))
+
+### 🏡 Chore
+
+- **release:** V0.1.0 ([6ea5685](https://github.com/Atinux/nuxt-auth-utils/commit/6ea5685))
+
+### ❤️ Contributors
+
+- Yue JIN ([@kingyue737](http://github.com/kingyue737))
+- Sébastien Chopin ([@Atinux](http://github.com/Atinux))
+
+## v0.1.1
+
+- Add `linear` provider
 
 ## v0.1.0
 
