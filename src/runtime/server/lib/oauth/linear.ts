@@ -71,6 +71,7 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
         withQuery(config.authorizationURL as string, {
           client_id: config.clientId,
           redirect_uri: redirectUrl,
+          response_type: 'code',
         }),
       )
     }
