@@ -94,7 +94,11 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
           grant_type: 'authorization_code',
         },
       },
-    )
+    ).catch((error) => {
+      if (!onError) throw error
+      console.error('Linear login failed:', error, redirectUrl)
+      return onError(event, error)
+    })
     if (tokens.error) {
       const error = createError({
         statusCode: 401,
