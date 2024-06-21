@@ -35,7 +35,7 @@ export interface OAuthLinearConfig {
   tokenURL?: string
 }
 
-export function githubEventHandler({ config, onSuccess, onError }: OAuthConfig<OAuthLinearConfig>) {
+export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<OAuthLinearConfig>) {
   return eventHandler(async (event: H3Event) => {
     config = defu(config, useRuntimeConfig(event).oauth?.linear, {
       authorizationURL: 'https://linear.app/oauth/authorize',

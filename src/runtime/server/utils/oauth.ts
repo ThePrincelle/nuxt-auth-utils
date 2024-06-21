@@ -7,6 +7,7 @@ import { microsoftEventHandler } from '../lib/oauth/microsoft'
 import { discordEventHandler } from '../lib/oauth/discord'
 import { battledotnetEventHandler } from '../lib/oauth/battledotnet'
 import { keycloakEventHandler } from '../lib/oauth/keycloak'
+import { linearEventHandler } from '../lib/oauth/linear'
 import { linkedinEventHandler } from '../lib/oauth/linkedin'
 import { cognitoEventHandler } from '../lib/oauth/cognito'
 import { facebookEventHandler } from '../lib/oauth/facebook'
@@ -21,6 +22,7 @@ export const oauth = {
   discordEventHandler,
   battledotnetEventHandler,
   keycloakEventHandler,
+  linearEventHandler,
   linkedinEventHandler,
   cognitoEventHandler,
   facebookEventHandler,
