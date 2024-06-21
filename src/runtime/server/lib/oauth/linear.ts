@@ -62,8 +62,8 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
       return onError(event, error)
     }
 
+    const redirectUrl = getRequestURL(event).href
     if (!query.code) {
-      const redirectUrl = getRequestURL(event).href
       // Redirect to Linear Oauth page
       return sendRedirect(
         event,
@@ -78,7 +78,6 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
 
     // TODO: improve typing
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const redirectUrl = getRequestURL(event).href
     const tokens: any = await $fetch(
       config.tokenURL as string,
       {
