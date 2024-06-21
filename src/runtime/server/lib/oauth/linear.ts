@@ -72,6 +72,7 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
           client_id: config.clientId,
           redirect_uri: redirectUrl,
           response_type: 'code',
+          prompt: 'consent',
         }),
       )
     }
@@ -82,10 +83,15 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
       config.tokenURL as string,
       {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
         body: {
           client_id: config.clientId,
           client_secret: config.clientSecret,
+          grant_type: 'authorization_code',
           code: query.code,
+          redirect_uri: getRequestURL(event).href,
         },
       },
     )
