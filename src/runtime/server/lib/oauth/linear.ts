@@ -62,7 +62,7 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
       return onError(event, error)
     }
 
-    const redirectUrl = getRequestURL(event).href
+    const redirectUrl = getRequestURL(event).href.split('?')[0] // Remove query string
     if (!query.code) {
       // Redirect to Linear Oauth page
       return sendRedirect(
