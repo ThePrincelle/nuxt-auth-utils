@@ -62,9 +62,9 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
       return onError(event, error)
     }
 
+    const redirectUrl = getRequestURL(event).href
     if (!query.code) {
       // Redirect to Linear Oauth page
-      const redirectUrl = getRequestURL(event).href
       return sendRedirect(
         event,
         withQuery(config.authorizationURL as string, {
@@ -88,7 +88,7 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
         },
         body: {
           code: query.code,
-          redirect_uri: '/',
+          redirect_uri: redirectUrl,
           client_id: config.clientId,
           client_secret: config.clientSecret,
           grant_type: 'authorization_code',
