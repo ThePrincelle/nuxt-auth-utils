@@ -91,7 +91,7 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
           client_secret: config.clientSecret,
           grant_type: 'authorization_code',
           code: query.code,
-          redirect_uri: getRequestURL(event).href,
+          redirect_uri: '/',
         },
       },
     )
