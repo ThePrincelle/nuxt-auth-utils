@@ -70,7 +70,7 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
         event,
         withQuery(config.authorizationURL as string, {
           client_id: config.clientId,
-          redirect_uri: redirectUrl
+          redirect_uri: redirectUrl,
         }),
       )
     }
@@ -101,21 +101,22 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
     const accessToken = tokens.access_token
     // TODO: improve typing
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const query: any = await $fetch('https://api.linear.app/graphql', {
+    const linearUser: any = await $fetch('https://api.linear.app/graphql', {
       headers: {
         'User-Agent': `Linear-OAuth-${config.clientId}`,
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${accessToken}`,
       },
       json: {
-        "query": "query Me {\n  viewer {\n    id\n    name\n    email\n  }\n}"
-      }
+        query: 'query Me {\n  viewer {\n    id\n    name\n    email\n  }\n}',
+      },
     })
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const user: any = {
-      id: query.data.data.viewer.id,
-      name: query.data.data.viewer.name,
-      email: query.data.data.viewer.email,
+      id: linearUser.data.data.viewer.id,
+      name: linearUser.data.data.viewer.name,
+      email: linearUser.data.data.viewer.email,
     }
 
     return onSuccess(event, {
