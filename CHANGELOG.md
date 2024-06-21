@@ -1,5 +1,23 @@
 # Changelog
 
+## v0.1.10
+
+[compare changes](https://github.com/ThePrincelle/nuxt-auth-utils/compare/v0.1.2...v0.1.10)
+
+### 🏡 Chore
+
+- **release:** V0.1.3 ([14b228f](https://github.com/ThePrincelle/nuxt-auth-utils/commit/14b228f))
+- **release:** V0.1.4 ([808e93c](https://github.com/ThePrincelle/nuxt-auth-utils/commit/808e93c))
+- **release:** V0.1.5 ([b97b265](https://github.com/ThePrincelle/nuxt-auth-utils/commit/b97b265))
+- **release:** V0.1.6 ([526067b](https://github.com/ThePrincelle/nuxt-auth-utils/commit/526067b))
+- **release:** V0.1.7 ([1215aff](https://github.com/ThePrincelle/nuxt-auth-utils/commit/1215aff))
+- **release:** V0.1.8 ([0e5e5b9](https://github.com/ThePrincelle/nuxt-auth-utils/commit/0e5e5b9))
+- **release:** V0.1.9 ([892e14b](https://github.com/ThePrincelle/nuxt-auth-utils/commit/892e14b))
+
+### ❤️ Contributors
+
+- Maxime Princelle <maxime@princelle.org>
+
 ## v0.1.9
 
 [compare changes](https://github.com/ThePrincelle/nuxt-auth-utils/compare/v0.1.8...v0.1.9)
