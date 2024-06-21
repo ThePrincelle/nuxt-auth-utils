@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.3
+
+[compare changes](https://github.com/ThePrincelle/nuxt-auth-utils/compare/v0.1.2...v0.1.3)
+
 ## v0.1.2
 
 [compare changes](https://github.com/Atinux/nuxt-auth-utils/compare/v0.1.0...v0.1.2)
