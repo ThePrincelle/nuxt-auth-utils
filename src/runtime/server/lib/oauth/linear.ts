@@ -40,7 +40,6 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
     config = defu(config, useRuntimeConfig(event).oauth?.linear, {
       authorizationURL: 'https://linear.app/oauth/authorize',
       tokenURL: 'https://api.linear.app/oauth/token',
-      authorizationParams: {},
     }) as OAuthLinearConfig
     const query = getQuery(event)
 
@@ -85,13 +84,14 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
+          'content-type': 'application/x-www-form-urlencoded',
         },
         body: {
+          code: query.code,
+          redirect_uri: '/',
           client_id: config.clientId,
           client_secret: config.clientSecret,
           grant_type: 'authorization_code',
-          code: query.code,
-          redirect_uri: '/',
         },
       },
     )
