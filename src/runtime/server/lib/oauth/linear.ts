@@ -62,7 +62,7 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
       return onError(event, error)
     }
 
-    const redirectUrl = getRequestURL(event).href.split('?')[0] // Remove query string
+    const redirectUrl = (getRequestURL(event).href as string).split('?')[0] // Remove query string
     if (!query.code) {
       // Redirect to Linear Oauth page
       return sendRedirect(
@@ -84,7 +84,6 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
-          'content-type': 'application/x-www-form-urlencoded',
         },
         body: {
           code: query.code,
@@ -94,11 +93,8 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
           grant_type: 'authorization_code',
         },
       },
-    ).catch((error) => {
-      if (!onError) throw error
-      console.error('Linear login failed:', error, redirectUrl)
-      return onError(event, error)
-    })
+    )
+
     if (tokens.error) {
       const error = createError({
         statusCode: 401,
