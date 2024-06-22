@@ -116,7 +116,7 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
         'Authorization': `Bearer ${accessToken}`,
       },
       body: {
-        query: 'query Me {\n  viewer {\n    id\n    name\n    email\n  }\n}',
+        query: 'query Me { viewer { id name email avatarUrl displayName }}',
       },
     })
 
@@ -125,6 +125,8 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
       id: linearUser.data.viewer.id,
       name: linearUser.data.viewer.name,
       email: linearUser.data.viewer.email,
+      avatar: linearUser.data.viewer.avatarUrl,
+      displayName: linearUser.data.viewer.displayName,
     }
 
     return onSuccess(event, {
