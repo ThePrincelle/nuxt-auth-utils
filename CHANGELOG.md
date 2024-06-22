@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.1.18
+
+[compare changes](https://github.com/ThePrincelle/nuxt-auth-utils/compare/v0.1.17...v0.1.18)
+
+### 🏡 Chore
+
+- **release:** V0.1.17 ([5ca34d6](https://github.com/ThePrincelle/nuxt-auth-utils/commit/5ca34d6))
+
+### ❤️ Contributors
+
+- Maxime Princelle <maxime@princelle.org>
+
 ## v0.1.17
 
 [compare changes](https://github.com/ThePrincelle/nuxt-auth-utils/compare/v0.1.16...v0.1.17)
