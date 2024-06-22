@@ -85,13 +85,13 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: {
+        body: new URLSearchParams({
           code: query.code,
           redirect_uri: redirectUrl,
           client_id: config.clientId,
           client_secret: config.clientSecret,
           grant_type: 'authorization_code',
-        },
+        }).toString(),
       },
     )
 
@@ -109,6 +109,7 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
     // TODO: improve typing
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const linearUser: any = await $fetch('https://api.linear.app/graphql', {
+      method: 'POST',
       headers: {
         'User-Agent': `Linear-OAuth-${config.clientId}`,
         'Content-Type': 'application/json',
@@ -121,9 +122,9 @@ export function linearEventHandler({ config, onSuccess, onError }: OAuthConfig<O
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const user: any = {
-      id: linearUser.data.data.viewer.id,
-      name: linearUser.data.data.viewer.name,
-      email: linearUser.data.data.viewer.email,
+      id: linearUser.data.viewer.id,
+      name: linearUser.data.viewer.name,
+      email: linearUser.data.viewer.email,
     }
 
     return onSuccess(event, {
